@@ -49,8 +49,8 @@ public class editDistance {
     }
 
     public static void main(String[] args) {
-        String str1 = "horse";
-        String str2 = "ros";
+        String str1 = "intention";
+        String str2 = "execution";
         int n = str1.length();
         int m = str2.length();
         int[][] dp = new int[n + 1][m + 1];
