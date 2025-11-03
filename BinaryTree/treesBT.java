@@ -123,6 +123,42 @@ public class treesBT {
             }
         }
 
+        static int heightBt(Node root){
+            if(root == null){
+                return 0;
+            }
+
+            int leftHeight = heightBt(root.left);
+            int rightHeight = heightBt(root.right);
+
+            int ans = Math.max(leftHeight, rightHeight) + 1;
+            return ans;
+        }
+        
+        static int countOFnodesBt(Node root){
+            if(root == null){
+                return 0;
+            }
+
+            int leftCount = countOFnodesBt(root.left);
+            int rightCount = countOFnodesBt(root.right);
+
+            int ans = leftCount + rightCount + 1;
+            return ans;
+        }
+        
+        static int sumOFnodesBt(Node root){
+            if(root == null){
+                return 0;
+            }
+
+            int leftSum = sumOFnodesBt(root.left);
+            int rightSum = sumOFnodesBt(root.right);
+
+            int ans = leftSum + rightSum + root.data;
+            return ans;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -138,7 +174,10 @@ public class treesBT {
         BT.postorder(root);
         System.out.println(" <- Post order");
         BT.levelOrder(root);
-        System.out.println(" <- Level order");
+        System.out.println("<- Level order");
+        System.out.println(BT.heightBt(root) + " <- Height of BT");
+        System.out.println(BT.countOFnodesBt(root) + " <- Number of Nodes in BT");
+        System.out.println(BT.sumOFnodesBt(root) + " <- Sum of Nodes in BT");
 
     }
 }
